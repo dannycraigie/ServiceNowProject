@@ -1,4 +1,3 @@
-
 export const selectGarage = document.getElementById(`selectGarage`);
 export const createGarage = document.getElementById(`createGarage`);
 export const delGarage = document.getElementById(`delGarage`);

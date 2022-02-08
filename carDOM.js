@@ -1,6 +1,7 @@
 //Search by ID
 export const vehicleInput = document.getElementById(`vehicleInput`);
 export const buttonSearch = document.getElementById(`buttonSearch`);
+export const singleOutput = document.getElementById(`singleOutput`);
 //Submit New
 export const nameInput = document.getElementById(`nameInput`);
 export const colourInput = document.getElementById(`colourInput`);

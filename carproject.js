@@ -6,18 +6,18 @@ import * as DOM from './carDOM.js';
 const get = () => {
     axios.get(`http://localhost:8080/car/read/${DOM.vehicleInput.value.toString()}`)
       .then((response) => {
-        (DOM.singleOutput).innerHTML = JSON.stringify(response.data)
+        DOM.singleOutput.innerHTML = JSON.stringify(response.data)
       }).catch((err) => {
         console.log(err);
       });
   }
 
-  DOM.buttonSearch.onclick = () => get();
+DOM.buttonSearch.onclick = () => get();
 
   
 //Post
 const post = () => {
-    axios.post(`http://localhost:8080/car/create`,{name : DOM.nameInput.value, colour : DOM.colourInput.value, make : DOM.makeInput.value, model : DOM.modelInput.value, doors: DOM.doorsInput.value})
+    axios.post(`http://localhost:8080/car/create`,{name : DOM.nameInput.value, colour : DOM.colourInput.value, make : DOM.makeInput.value, model : DOM.modelInput.value, doors: DOM.doorsInput.value,})
       .then((response) => {
         console.log(response);
         get();
@@ -25,14 +25,15 @@ const post = () => {
         console.log(err);
       });
   }
-  DOM.buttonCreate.onclick = () => post();
+
+DOM.buttonCreate.onclick = () => post();
   
 
-DOM.buttonUpdate.onclick = () => put();
+
 
 //Update
   const update = () => { 
-    axios.update(`http://localhost:8080/car/update/${DOM.idInput.value.toString()}`, {name:DOM.updateName.value,colour:DOM.colourUpdate.value,make:DOM.makeUpdate.value,model:DOM.modelUpdate.value,doors:DOM.doorsUpdate.value.toString()})
+    axios.post(`http://localhost:8080/car/update/${DOM.idInput.value.toString()}`, {name:DOM.nameUpdate.value,colour:DOM.colourUpdate.value,make:DOM.makeUpdate.value,model:DOM.modelUpdate.value,doors:DOM.doorsUpdate.value.toString()})
       .then((response) => {
        console.log(response);
        get();

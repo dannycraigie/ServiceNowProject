@@ -8,3 +8,5 @@ export const singleOutput = document.getElementById(`singleOutput`);
 export const inputUpdateName = document.getElementById(`inputUpdateName`);
 export const inputUpdateID = document.getElementById(`inputUpdateID`);
 export const buttonUpdate = document.getElementById(`buttonUpdate`);
+export const buttonSelect = document.getElementById(`buttonSelect`);
+export const buttonDelete = document.getElementById(`buttonDelete`);

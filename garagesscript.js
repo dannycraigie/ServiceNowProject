@@ -30,7 +30,7 @@ const get = () => {
 
 // Select Garage
 const getGar = () => {
-  axios.get(`http://localhost:8080/garage/read/${DOM.selectGarage.value.toString()}`)
+  axios.get(`http://localhost:8080/garage/read/${DOM.selectGarage.name.toString()}`)
     .then((response) => {
       DOM.singleOutput.innerHTML = JSON.stringify(response.data)
     }).catch((err) => {
@@ -38,11 +38,11 @@ const getGar = () => {
     });
 }
 
-DOM.selectGarage.onclick = () => getGar();
+DOM.buttonSelect.onclick = () => getGar();
 
 // Create Garage
 const postGar = () => {
-  axios.post(`http://localhost:8080/garage/create`, {name : DOM.createGarage.value})
+  axios.post(`http://localhost:8080/garage/create/`, {name : DOM.createGarage.value})
     .then((response) => {
       console.log(response);
       get();
@@ -51,11 +51,11 @@ const postGar = () => {
     });
 }
 
-DOM.buttonCreate.onclick = () => postGar();
+DOM.createButton.onclick = () => postGar();
 
 // Update Garage
 const updGar = () => { 
-  axios.put(`http://localhost:8080/garage/update/${DOM.inputID.value.toString()}`, {name:DOM.inputUpdateName.value,_id:DOM.inputUpdateID.value.toString()})
+  axios.put(`http://localhost:8080/garage/update/${DOM.inputUpdateID.value.toString()}`, {name:DOM.inputUpdateName.value,_id:DOM.inputUpdateID.value.toString()})
     .then((response) => {
      console.log(response);
      get();
@@ -77,4 +77,4 @@ const delGar = () => {
     });
 }
 
-DOM.delGarage.onclick = () => delGar();
+DOM.buttonDelete.onclick = () => delGar();
